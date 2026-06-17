@@ -20,5 +20,12 @@ jobs:
           -scheme FeriasESF \
           -sdk iphonesimulator \
           -configuration Release \
+          -derivedDataPath build \
           CODE_SIGNING_ALLOWED=NO \
           build
+
+      - name: Upload App
+        uses: actions/upload-artifact@v4
+        with:
+          name: FeriasESF-iOS-App
+          path: build/Build/Products/Release-iphonesimulator/
